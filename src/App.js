@@ -4,6 +4,7 @@ import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 
 function App() {
+  //STATES
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
@@ -14,7 +15,7 @@ function App() {
     filterHandler();
   }, [todos, status]);
 
-  const filterHandler = () => {
+  function filterHandler() {
     switch (status) {
       case "completed":
         setFilteredTodos(todos.filter((todo) => todo.completed === true));
@@ -26,7 +27,7 @@ function App() {
         setFilteredTodos(todos);
         break;
     }
-  };
+  }
 
   return (
     <div className="App">
